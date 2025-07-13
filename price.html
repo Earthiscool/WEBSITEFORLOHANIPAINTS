@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing | Lohani Paints</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+    }
+    .question-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .question-card.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .question-card.hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+    .highlight-text {
+      background: linear-gradient(to right, #42a5f5, #66bb6a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-md z-50 px-8 py-4 flex justify-between items-center text-blue-800 font-semibold">
+    <div class="text-2xl font-bold">Lohani Paints</div>
+    <div class="space-x-6">
+      <a href="index.html" class="hover:text-blue-600">Home</a>
+      <a href="about.html" class="hover:text-blue-600">About</a>
+      <a href="affiliates.html" class="hover:text-blue-600">Affiliates</a>
+      <a href="reviews.html" class="hover:text-blue-600">Reviews</a>
+      <a href="contact.html" class="hover:text-blue-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="mt-24 text-center px-6">
+    <h1 class="text-4xl font-extrabold text-blue-700 mb-4">Paints That Don't Break the Bank</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      We believe in pricing that makes sense. Whether you're buying for a small project or stocking up for a renovation,
+      we're here to help you save. Let's find the right discount for you.
+    </p>
+    <button id="start-btn" class="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition">
+      Get Started
+    </button>
+  </section>
+
+  <!-- Question Flow -->
+  <section id="questionnaire" class="px-6 py-10 hidden">
+    <div id="question-container" class="question-card hidden"></div>
+    <div id="result" class="text-center text-3xl font-bold text-green-700 mt-8 hidden"></div>
+  </section>
+
+  <script>
+    const questions = [
+      {
+        question: "What type of product are you buying?",
+        options: ["Paint", "Hardware", "Both"]
+      },
+      {
+        question: "How large is your project?",
+        options: ["Small (1-2 rooms)", "Medium (3-5 rooms)", "Large (entire house or commercial)"]
+      },
+      {
+        question: "Are you a returning customer?",
+        options: ["Yes", "No"]
+      }
+    ];
+
+    const discounts = {
+      "Paint|Small (1-2 rooms)|No": 5,
+      "Paint|Small (1-2 rooms)|Yes": 7,
+      "Paint|Medium (3-5 rooms)|No": 10,
+      "Paint|Medium (3-5 rooms)|Yes": 12,
+      "Paint|Large (entire house or commercial)|No": 15,
+      "Paint|Large (entire house or commercial)|Yes": 18,
+      "Hardware|Small (1-2 rooms)|No": 4,
+      "Hardware|Small (1-2 rooms)|Yes": 6,
+      "Hardware|Medium (3-5 rooms)|No": 8,
+      "Hardware|Medium (3-5 rooms)|Yes": 10,
+      "Hardware|Large (entire house or commercial)|No": 12,
+      "Hardware|Large (entire house or commercial)|Yes": 15,
+      "Both|Small (1-2 rooms)|No": 7,
+      "Both|Small (1-2 rooms)|Yes": 9,
+      "Both|Medium (3-5 rooms)|No": 13,
+      "Both|Medium (3-5 rooms)|Yes": 16,
+      "Both|Large (entire house or commercial)|No": 20,
+      "Both|Large (entire house or commercial)|Yes": 25
+    };
+
+    const startBtn = document.getElementById("start-btn");
+    const container = document.getElementById("question-container");
+    const resultBox = document.getElementById("result");
+    const questionnaire = document.getElementById("questionnaire");
+
+    let current = 0;
+    let answers = [];
+
+    startBtn.addEventListener("click", () => {
+      startBtn.style.display = "none";
+      questionnaire.classList.remove("hidden");
+      showQuestion();
+    });
+
+    function showQuestion() {
+      const q = questions[current];
+      container.classList.remove("hidden");
+      container.innerHTML = `<h2 class="text-2xl font-bold text-blue-700 mb-6">${q.question}</h2>`;
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.className = "block w-full bg-blue-100 hover:bg-blue-200 text-blue-900 font-medium py-3 px-6 mb-4 rounded-lg transition";
+        btn.onclick = () => {
+          answers.push(opt);
+          current++;
+          if (current < questions.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function showResult() {
+      container.classList.add("hidden");
+      const key = answers.join("|");
+      const discount = discounts[key] || 5;
+      resultBox.textContent = `You qualify for a ${discount}% discount! 🎉`;
+      resultBox.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

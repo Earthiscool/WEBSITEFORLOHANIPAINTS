@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Lohani Paints</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="css/output.css" rel="stylesheet" />
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f0f4f8, #dbeafe);
+    }
+    .section {
+      padding: 5rem 1rem;
+    }
+    .section:nth-child(even) {
+      background: linear-gradient(to bottom, #fff0f6, #fde68a);
+    }
+    .highlight {
+      background: linear-gradient(90deg, #34d399, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .image-frame {
+      border: 5px solid #3b82f6;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      text-decoration: none;
+    }
+    nav a:hover span,
+    nav a:focus span {
+      width: 100%;
+    }
+
+    /* --- Hamburger button and mobile nav styles --- */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      width: 24px;
+      height: 20px;
+    }
+    .hamburger div {
+      background-color: #1e40af;
+      height: 3px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    nav > div.space-x-8 {
+      display: flex;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      nav > div.space-x-8 {
+        position: fixed;
+        top: 64px; /* navbar height */
+        right: 0;
+        background: rgba(255 255 255 / 0.95);
+        backdrop-filter: saturate(180%) blur(10px);
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0 0 0 8px;
+        height: calc(100vh - 64px);
+        overflow-y: auto;
+        z-index: 45;
+      }
+      nav > div.space-x-8.active {
+        transform: translateX(0);
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+  <nav aria-label="Primary navigation" role="navigation" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-40 flex justify-between items-center px-8 py-4 font-semibold text-blue-900 text-lg">
+    <div>
+      <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
+    </div>
+
+    <!-- Hamburger button -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <div class="space-x-8" id="primary-menu">
+      <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Home
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+
+      <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Contact
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Affiliates
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Reviews
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        About
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-24">
+    <!-- Welcome Section -->
+    <section class="section text-center" data-aos="fade-up">
+      <h1 class="text-5xl font-extrabold highlight mb-4">Our Story</h1>
+      <p class="text-xl max-w-2xl mx-auto">For decades, Lohani Paints & Hardware has stood as a vibrant pillar of the Gaya community — full of color, kindness, and connection.</p>
+    </section>
+
+    <!-- Founding Story -->
+    <section class="section flex flex-col md:flex-row items-center gap-12" data-aos="fade-right">
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold text-blue-800 mb-3">Founded in the Heart of Gaya</h2>
+        <p class="text-lg leading-relaxed">Lohani Paints began as a small family-owned shop in the early 1990s with a simple mission: to bring color and durability into the lives of the people of Gaya. Through monsoons and milestones, we stayed committed to delivering top-notch products and genuine advice to every customer who walked in.</p>
+      </div>
+      <div class="md:w-1/2 image-frame" data-aos="zoom-in">
+        <img src="img/founders.jpg" alt="Founders" class="w-full object-cover h-80" />
+      </div>
+    </section>
+
+    <!-- Generations of Service -->
+    <section class="section flex flex-col-reverse md:flex-row items-center gap-12" data-aos="fade-left">
+      <div class="md:w-1/2 image-frame" data-aos="zoom-in">
+        <img src="img/family-business.jpg" alt="Family Team" class="w-full object-cover h-80" />
+      </div>
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold text-pink-600 mb-3">Generations Carry the Torch</h2>
+        <p class="text-lg leading-relaxed">From grandfather to grandson, Lohani Paints is more than a store — it's a legacy. We’ve grown alongside the city’s neighborhoods, watched families build their dream homes, and celebrated festivals with our customers. Our commitment only deepens with each passing year.</p>
+      </div>
+    </section>
+
+    <!-- Community Love -->
+    <section class="section text-center bg-gradient-to-r from-blue-100 via-green-100 to-yellow-100" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">We Thank You, Gaya</h2>
+      <p class="max-w-3xl mx-auto text-lg">This journey wouldn’t be possible without the trust and love of the Gaya community. You’ve supported us, believed in us, and inspired us to be better every day. This isn’t just our story — it’s yours, too.</p>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8">
+        <div class="image-frame" data-aos="zoom-in">
+          <img src="img/owner1.jpg" alt="Owner 1" class="h-64 w-full object-cover" />
+          <p class="mt-2 font-semibold">Chicky Mama - Founder</p>
+        </div>
+        <div class="image-frame" data-aos="zoom-in" data-aos-delay="100">
+          <img src="img/owner2.jpg" alt="Owner 2" class="h-64 w-full object-cover" />
+          <p class="mt-2 font-semibold">Current Shop Manager</p>
+        </div>
+        <div class="image-frame" data-aos="zoom-in" data-aos-delay="200">
+          <img src="img/owner3.jpg" alt="Owner 3" class="h-64 w-full object-cover" />
+          <p class="mt-2 font-semibold">Next Generation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section text-center bg-gradient-to-br from-yellow-100 to-pink-200" data-aos="fade-up">
+      <h2 class="text-4xl font-extrabold text-blue-600 mb-4">Looking Ahead</h2>
+      <p class="max-w-3xl mx-auto text-xl">The walls we paint today tell the stories of tomorrow. As Lohani Paints continues to grow, our heart remains rooted in the streets of Gaya, and in every smile we help color.</p>
+    </section>
+  </main>
+
+  <footer class="bg-gray-200 py-6 text-center text-sm text-gray-700">
+    &copy; 2025 Lohani Paints. All rights reserved.
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Hamburger toggle script
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('primary-menu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true' || false;
+      hamburgerBtn.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
