@@ -35,20 +35,10 @@
       position: relative;
       padding-bottom: 4px;
       text-decoration: none;
-      color: #1e40af; /* Tailwind blue-800 */
     }
     nav a:hover span,
     nav a:focus span {
       width: 100%;
-    }
-    nav a span {
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #3b82f6; /* Tailwind blue-500 */
-      transition: width 0.3s ease;
     }
 
     /* --- Hamburger button and mobile nav styles --- */
@@ -116,24 +106,24 @@
     <div class="space-x-8" id="primary-menu">
       <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
         Home
-        <span></span>
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
       </a>
 
       <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
         Contact
-        <span></span>
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
       </a>
       <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
         Affiliates
-        <span></span>
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
       </a>
       <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
         Reviews
-        <span></span>
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
       </a>
       <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
         About
-        <span></span>
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
       </a>
     </div>
   </nav>
