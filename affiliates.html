@@ -56,30 +56,43 @@
       width: 100%;
     }
 
-    /* --- ADDED: Hamburger button and mobile nav styles --- */
-    /* Hide hamburger on desktop */
+    /* Hamburger styles for SVG icon */
     .hamburger {
-      display: none;
+      display: none; /* hide on desktop */
       cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      width: 24px;
-      height: 20px;
-    }
-    .hamburger div {
-      background-color: #1e40af;
-      height: 3px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+      padding: 4px;
+      background: transparent;
+      border: none;
+      z-index: 50;
+      position: relative;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      /* For keyboard focus outline */
+      outline-offset: 2px;
     }
 
-    /* Mobile menu hidden by default */
-    nav > div.space-x-8 {
-      display: flex;
-      gap: 2rem;
+    .hamburger svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      stroke: #1e40af;
+      transition: stroke 0.3s ease;
     }
+
+    /* Hover and focus color changes */
+    .hamburger:hover svg,
+    .hamburger:focus svg {
+      stroke: #2563eb; /* Tailwind blue-600 */
+    }
+
     @media (max-width: 768px) {
-      /* Hide nav links */
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       nav > div.space-x-8 {
         position: fixed;
         top: 64px; /* below navbar */
@@ -98,14 +111,8 @@
         z-index: 45;
       }
 
-      /* Show nav links when active */
       nav > div.space-x-8.active {
         transform: translateX(0);
-      }
-
-      /* Show hamburger */
-      .hamburger {
-        display: flex;
       }
     }
   </style>
@@ -117,8 +124,7 @@
     <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
   </div>
 
-  <!-- Hamburger button -->
-
+  <!-- Hamburger button with SVG -->
   <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
     <svg width="24" height="24" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
       <line x1="3" y1="6" x2="21" y2="6"></line>
