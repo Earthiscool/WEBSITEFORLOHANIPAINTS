@@ -238,6 +238,32 @@
       display: flex;
     }
   }
+  @media (max-width: 420px) {
+  .door.right {
+    /* Allow text to wrap */
+    white-space: normal;
+    padding: 0 1rem;
+    font-size: 2rem; /* optional: slightly smaller font */
+    line-height: 1.2;
+    text-align: center;
+  }
+  
+  /* Insert a line break between "PAINTS" and "HARDWARE" */
+  .door.right::after {
+    content: "\A HARDWARE";
+    white-space: pre;
+    font-weight: 900;
+  }
+
+  /* Hide the original "HARDWARE" text so it doesn't repeat */
+  .door.right {
+    position: relative;
+  }
+  .door.right span {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -245,7 +271,7 @@
   <!-- Intro Doors -->
   <div id="intro">
     <div class="door left">LOHANI</div>
-    <div class="door right">PAINTS & HARDWARE</div>
+    <div class="door right">PAINTS<span> & HARDWARE</span></div>
   </div>
 
   <!-- Paint Burst Container -->
