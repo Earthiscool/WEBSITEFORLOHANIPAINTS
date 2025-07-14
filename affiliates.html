@@ -186,16 +186,22 @@
 
   <!-- Affiliates Grid -->
   <main class="flex-grow max-w-7xl mx-auto px-8 py-16">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-16 justify-items-center">
-      <div class="ripple-container group cursor-pointer" data-affiliate="asianpaints" title="Asian Paints">
-        <img src="img/asian-paints-logo.png" alt="Asian Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
-        <p class="mt-4 text-base font-semibold text-gray-700 text-center">Asian Paints</p>
-      </div>
-      <div class="ripple-container group cursor-pointer" data-affiliate="dulux" title="Dulux">
-        <img src="img/dulux-logo.png" alt="Dulux Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
-        <p class="mt-4 text-base font-semibold text-gray-700 text-center">Dulux</p>
-      </div>
-    </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-16 justify-items-center">
+  <div class="ripple-container group cursor-pointer" data-affiliate="asianpaints" title="Asian Paints">
+    <img src="img/asian-paints-logo.png" alt="Asian Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Asian Paints</p>
+  </div>
+  <div class="ripple-container group cursor-pointer" data-affiliate="dulux" title="Dulux">
+    <img src="img/dulux-logo.png" alt="Dulux Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Dulux</p>
+  </div>
+  <div class="ripple-container group cursor-pointer" data-affiliate="indigo" title="Indigo Paints">
+    <img src="/img/indigo-logo.png" alt="Indigo Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Indigo</p>
+  </div>
+</div> 
+
+
 
     <!-- Affiliate Info Panel -->
     <section id="affiliate-info" class="info-panel mt-16 px-6 py-8 bg-blue-50 rounded-lg max-w-4xl mx-auto shadow-md text-gray-800 text-lg leading-relaxed"></section>
@@ -237,26 +243,34 @@
   </script>
 
   <script>
-    const affiliateDetails = {
-      asianpaints: `
-        <h3 class="text-2xl font-bold mb-4 text-blue-700">Asian Paints & Lohani Paints Partnership</h3>
-        <p>
-          Lohani Paints has proudly partnered with Asian Paints for over a decade,
-          bringing the finest range of high-quality paints and coatings to our customers.
-          Our collaboration ensures durable finishes and vibrant colors tailored to every
-          project, backed by trusted expertise and excellent customer support.
-        </p>
-      `,
-      dulux: `
-        <h3 class="text-2xl font-bold mb-4 text-blue-700">Dulux & Lohani Paints History</h3>
-        <p>
-          Dulux has been a key affiliate of Lohani Paints since our early years. Together,
-          we have provided innovative paint solutions that combine durability and aesthetics.
-          Our joint commitment to quality has made Dulux products a top choice among homeowners
-          and professionals in our community.
-        </p>
-      `
-    };
+const affiliateDetails = {
+  asianpaints: `
+    <h3 class="text-2xl font-bold mb-4 text-blue-700">Asian Paints & Lohani Paints Partnership</h3>
+    <p>
+      Lohani Paints has proudly partnered with Asian Paints for over a decade,
+      bringing the finest range of high-quality paints and coatings to our customers.
+      Our collaboration ensures durable finishes and vibrant colors tailored to every
+      project, backed by trusted expertise and excellent customer support.
+    </p>
+  `,
+  dulux: `
+    <h3 class="text-2xl font-bold mb-4 text-blue-700">Dulux & Lohani Paints History</h3>
+    <p>
+      Dulux has been a key affiliate of Lohani Paints since our early years. Together,
+      we have provided innovative paint solutions that combine durability and aesthetics.
+      Our joint commitment to quality has made Dulux products a top choice among homeowners
+      and professionals in our community.
+    </p>
+  `, 
+  indigo: `
+    <h3 class="text-2xl font-bold mb-4 text-blue-700">Indigo Paints & Lohani Paints Collaboration</h3>
+    <p>
+      Lohani Paints is excited to collaborate with Indigo Paints, known for its cutting-edge technology and eco-friendly innovations.
+      Together, we offer vibrant, long-lasting finishes trusted by modern homeowners and contractors alike.
+    </p>
+  `
+};
+
 
     const affiliateGrid = document.querySelector('main div.grid');
     const infoPanel = document.getElementById('affiliate-info');

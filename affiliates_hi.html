@@ -194,16 +194,20 @@
 
   <!-- Affiliates Grid -->
   <main class="flex-grow max-w-7xl mx-auto px-8 py-16">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-16 justify-items-center">
-      <div class="ripple-container group cursor-pointer" data-affiliate="asianpaints" title="Asian Paints">
-        <img src="img/asian-paints-logo.png" alt="Asian Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
-        <p class="mt-4 text-base font-semibold text-gray-700 text-center">Asian Paints</p>
-      </div>
-      <div class="ripple-container group cursor-pointer" data-affiliate="dulux" title="Dulux">
-        <img src="img/dulux-logo.png" alt="Dulux Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
-        <p class="mt-4 text-base font-semibold text-gray-700 text-center">Dulux</p>
-      </div>
-    </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-16 justify-items-center">
+  <div class="ripple-container group cursor-pointer" data-affiliate="asianpaints" title="Asian Paints">
+    <img src="img/asian-paints-logo.png" alt="Asian Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Asian Paints</p>
+  </div>
+  <div class="ripple-container group cursor-pointer" data-affiliate="dulux" title="Dulux">
+    <img src="img/dulux-logo.png" alt="Dulux Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Dulux</p>
+  </div>
+  <div class="ripple-container group cursor-pointer" data-affiliate="indigo" title="Indigo Paints">
+    <img src="/img/indigo-logo.png" alt="Indigo Paints Logo" class="h-32 object-contain grayscale group-hover:grayscale-0 transition duration-300" loading="lazy" />
+    <p class="mt-4 text-base font-semibold text-gray-700 text-center">Indigo</p>
+  </div>
+</div> 
 
     <!-- Affiliate Info Panel -->
     <section id="affiliate-info" class="info-panel mt-16 px-6 py-8 bg-blue-50 rounded-lg max-w-4xl mx-auto shadow-md text-gray-800 text-lg leading-relaxed"></section>
@@ -265,7 +269,16 @@
 गुणवत्ता के प्रति हमारी संयुक्त प्रतिबद्धता ने डुलक्स उत्पादों को हमारे समुदाय के गृहस्वामियों
 और पेशेवरों के बीच एक शीर्ष विकल्प बना दिया है।
         </p>
-      `
+      `,
+      indigo: `
+    <h3 class="text-2xl font-bold mb-4 text-blue-700">Indigo & Lohani Paints History</h3>
+    <p>
+लोहानी पेंट्स, इंडिगो पेंट्स के साथ साझेदारी को लेकर उत्साहित है, जो अपनी अत्याधुनिक तकनीक और पर्यावरण-अनुकूल नवाचारों के लिए जानी जाती है।
+साथ मिलकर, हम जीवंत और लंबे समय तक चलने वाले फ़िनिश प्रदान करते हैं जिन पर आधुनिक घर के मालिक और ठेकेदार दोनों भरोसा करते हैं।
+    </p>
+  `
+
+
     };
 
     const affiliateGrid = document.querySelector('main div.grid');
