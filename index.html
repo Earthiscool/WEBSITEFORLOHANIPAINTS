@@ -1,9 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lohani Paints & Hardware</title>
+  <title>Lohani Paints & Hardware - Quality Paints and Services</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Lohani Paints & Hardware offers quality paints and end-to-end painting services since 1995. Your trusted source for paints, hardware, and expert advice.">
+  <meta name="keywords" content="paints, hardware, painting services, Lohani Paints, quality paints, home improvement, professional painting">
+  <meta name="author" content="Lohani Paints & Hardware">
+  <meta name="robots" content="index, follow">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.lohanipaints.com/index.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Lohani Paints & Hardware - Quality Paints and Services">
+  <meta property="og:description" content="Your trusted source for quality paints and expert painting services since 1995.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lohanipaints.com/index.html">
+  <meta property="og:image" content="https://www.lohanipaints.com/images/og-image.jpg">
+  <meta property="og:site_name" content="Lohani Paints & Hardware">
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lohani Paints & Hardware - Quality Paints and Services">
+  <meta name="twitter:description" content="Your trusted source for quality paints and expert painting services since 1995.">
+  <meta name="twitter:image" content="https://www.lohanipaints.com/images/og-image.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="css/output.css" rel="stylesheet" />
 
@@ -176,170 +197,159 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 20px rgba(37,99,235,0.5);
     }
-      nav a {
-    position: relative;
-    padding-bottom: 4px;
-    text-decoration: none;
-  }
-  nav a:hover span,
-  nav a:focus span {
-    width: 100%;
-  }
-
-  /* --- ADDED: Hamburger button and mobile nav styles --- */
-  /* Hide hamburger on desktop */
-  .hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    width: 24px;
-    height: 20px;
-  }
-  .hamburger div {
-    background-color: #1e40af;
-    height: 3px;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  /* Mobile menu hidden by default */
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-  }
-  @media (max-width: 768px) {
-    /* Hide nav links */
-    .nav-links {
-      position: fixed;
-      top: 64px; /* below navbar */
-      right: 0;
-      background: rgba(255 255 255 / 0.95);
-      backdrop-filter: saturate(180%) blur(10px);
-      flex-direction: column;
-      width: 200px;
-      padding: 1rem;
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      border-radius: 0 0 0 8px;
-      height: calc(100vh - 64px);
-      overflow-y: auto;
-      z-index: 45;
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+      text-decoration: none;
+    }
+    nav a:hover span,
+    nav a:focus span {
+      width: 100%;
     }
 
-    /* Show nav links when active */
-    .nav-links.active {
-      transform: translateX(0);
-    }
-
-    /* Show hamburger */
+    /* Hamburger button and mobile nav styles */
     .hamburger {
-      display: flex;
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      width: 24px;
+      height: 20px;
     }
-  }
-  @media (max-width: 420px) {
-  .door.right {
-    /* Allow text to wrap */
-    white-space: normal;
-    padding: 0 1rem;
-    font-size: 2rem; /* optional: slightly smaller font */
-    line-height: 1.2;
-    text-align: center;
-  }
-  
-  /* Insert a line break between "PAINTS" and "HARDWARE" */
-  .door.right::after {
-    content: "\A HARDWARE";
-    white-space: pre;
-    font-weight: 900;
-  }
+    .hamburger div {
+      background-color: #1e40af;
+      height: 3px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-  /* Hide the original "HARDWARE" text so it doesn't repeat */
-  .door.right {
-    position: relative;
-  }
-  .door.right span {
-    display: none;
-  }
-}
-
+    /* Mobile menu hidden by default */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        right: 0;
+        background: rgba(255 255 255 / 0.95);
+        backdrop-filter: saturate(180%) blur(10px);
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        border-radius: 0 0 0 8px;
+        height: calc(100vh - 64px);
+        overflow-y: auto;
+        z-index: 45;
+      }
+      .nav-links.active {
+        transform: translateX(0);
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    @media (max-width: 420px) {
+      .door.right {
+        white-space: normal;
+        padding: 0 1rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+      }
+      .door.right::after {
+        content: "\A HARDWARE";
+        white-space: pre;
+        font-weight: 900;
+      }
+      .door.right {
+        position: relative;
+      }
+      .door.right span {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-
   <!-- Intro Doors -->
-  <div id="intro">
+  <div id="intro" aria-hidden="true">
     <div class="door left">LOHANI</div>
     <div class="door right">PAINTS<span> & HARDWARE</span></div>
   </div>
 
   <!-- Paint Burst Container -->
-  <div id="paint-burst"></div>
+  <div id="paint-burst" aria-hidden="true"></div>
 
   <!-- Navbar -->
-<nav aria-label="Primary navigation" role="navigation" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-40 flex justify-between items-center px-8 py-4 font-semibold text-blue-900 text-lg">
-  <div>
-    <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
-  </div>
-  <!-- ADDED: Hamburger button with SVG icon instead of div bars -->
-  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
-    <svg width="24" height="24" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </button>
-
-  <!-- ADDED: Nav links container with class for toggling -->
-<div class="nav-links space-x-8" id="primary-menu">
-    <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Home
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Contact
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Affiliates
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Reviews
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      About
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-        <a href="ourbiggestprojects.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Our Biggest Projects
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-  </div>
-</nav>
-
-<style>
-  nav a {
-    position: relative;
-    padding-bottom: 4px;
-    text-decoration: none;
-  }
-  nav a:hover span,
-  nav a:focus span {
-    width: 100%;
-  }
-</style>
+  <nav aria-label="Primary navigation" role="navigation" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-40 flex justify-between items-center px-8 py-4 font-semibold text-blue-900 text-lg">
+    <div>
+      <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
+      <svg width="24" height="24" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <div class="nav-links space-x-8" id="primary-menu">
+      <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Home
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Contact
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Affiliates
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Reviews
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        About
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+      <a href="ourbiggestprojects.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+        Our Biggest Projects
+        <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+      </a>
+    </div>
+  </nav>
 
   <!-- Main content -->
   <main id="main-content" class="mt-20">
     <section id="hero">
       <h1>Welcome to Lohani Paints & Hardware</h1>
-      <p>Your trusted source for quality paints and expert advice since 1995. Providing End to End Services, from you buying the paint to us hiring the Painter. Your onestop road to painting anything.</p>
+      <p>Your trusted source for quality paints and expert advice since 1995. Providing end-to-end services, from buying the paint to hiring the painter. Your one-stop road to painting anything.</p>
       <a href="contact.html" class="button" aria-label="Contact Lohani Paints">Get in Touch</a>
     </section>
   </main>
+
+  <!-- Structured Data for Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lohani Paints & Hardware",
+      "url": "https://www.lohanipaints.com",
+      "logo": "https://www.lohanipaints.com/images/logo.png",
+      "description": "Lohani Paints & Hardware provides quality paints and end-to-end painting services since 1995.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "url": "https://www.lohanipaints.com/contact.html"
+      }
+    }
+  </script>
 
   <script>
     const intro = document.getElementById('intro');
@@ -361,12 +371,10 @@
 
     function runIntroAnimation() {
       if (localStorage.getItem('introPlayed')) {
-        // Animation already played, show main content immediately
         mainContent.classList.add('visible');
         return;
       }
 
-      // Show intro elements by adding class to body
       document.body.classList.add('show-intro');
 
       setTimeout(() => {
@@ -378,17 +386,15 @@
       }, 2000);
 
       setTimeout(() => {
-        // Hide intro elements and show main content
         document.body.classList.remove('show-intro');
         mainContent.classList.add('visible');
-        // Mark animation as played so it won't run again
         localStorage.setItem('introPlayed', 'true');
       }, 4500);
     }
 
     window.onload = runIntroAnimation;
 
-    // --- ADDED: Hamburger menu toggle script ---
+    // Hamburger menu toggle script
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.querySelector('.nav-links');
 
