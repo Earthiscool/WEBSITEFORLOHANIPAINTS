@@ -219,6 +219,33 @@ nav a:focus span {
     display: flex;
   }
 }
+.carousel-container {
+  position: relative;
+  width: 500px;       /* fixed max size on big screens */
+  height: 500px;
+  margin: 2rem auto 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #e5e7eb;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+#carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  user-select: none;
+}
+
+/* Make container & image responsive on smaller screens */
+@media (max-width: 600px) {
+  .carousel-container {
+    width: 90vw;    /* max 90% of viewport width */
+    height: 90vw;   /* keep square shape */
+  }
+}
 
   </style>
 </head>
