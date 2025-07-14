@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Biggest Projects | Lohani Paints</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <style>
+    .project-box {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 50;
+      overflow-y: auto;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .modal.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #project-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #1d4ed8;
+      text-align: center;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    #project-large-description {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e40af;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #building-image {
+      width: 100%;
+      max-width: 900px;
+      height: 50vh;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 0 auto 2rem auto;
+      user-select: none;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .toggle-button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .toggle-button.active,
+    .toggle-button:hover {
+      background: #2563eb;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 60vh;
+      margin: 2rem auto 0 auto;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #e5e7eb;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    #carousel-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+      user-select: none;
+    }
+    #carousel-image.fade {
+      opacity: 0;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 2.5rem;
+      padding: 0.25rem 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+    .carousel-button.right {
+      right: 0;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    .carousel-button.left {
+      left: 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    button.close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.25rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+    button.close-btn:hover {
+      background: #dc2626;
+    }
+    .hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+  height: 20px;
+}
+.hamburger div {
+  background-color: #1e40af;
+  height: 3px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation link underline animation */
+nav a {
+  position: relative;
+  padding-bottom: 4px;
+  text-decoration: none;
+}
+nav a:hover span,
+nav a:focus span {
+  width: 100%;
+}
+
+/* Desktop links layout */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    background: rgba(255 255 255 / 0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0 0 0 8px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    z-index: 45;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+  </style>
+</head>
+<!-- Navbar -->
+<nav aria-label="Primary navigation" role="navigation" class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-40 flex justify-between items-center px-8 py-4 font-semibold text-blue-900 text-lg">
+  <div>
+    <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
+  </div>
+
+  <!-- Hamburger Button -->
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
+    <svg width="24" height="24" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
+  <!-- Navigation Links -->
+  <div class="nav-links space-x-8" id="primary-menu">
+    <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      Home
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+    <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      Contact
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+    <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      Affiliates
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+    <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      Reviews
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+    <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      About
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+        <a href="ourbiggestprojects.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+      Our Biggest Projects
+      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+    </a>
+  </div>
+</nav>
+
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex flex-col items-center justify-center p-8">
+  <h1 class="text-4xl font-bold text-blue-700 mb-10">Our Biggest Projects</h1>
+
+  <div class="flex flex-col gap-10 items-center justify-center w-full max-w-4xl">
+    <div 
+      class="project-box bg-gradient-to-r from-yellow-400 to-red-400 text-white text-center text-2xl font-semibold rounded-xl cursor-pointer flex items-center justify-center"
+      style="width: 500px; height: 500px; max-width: 90vw; max-height: 90vw;"
+      onclick="openProject('project1')"
+    >
+      Hotel Grand Renovation
+    </div>
+
+    <div 
+      class="project-box bg-gradient-to-r from-purple-400 to-pink-500 text-white text-center text-2xl font-semibold rounded-xl cursor-pointer flex items-center justify-center"
+      style="width: 500px; height: 500px; max-width: 90vw; max-height: 90vw;"
+      onclick="openProject('project2')"
+    >
+      Riverside Villas
+    </div>
+  </div>
+
+
+  <div id="project-modal" class="modal">
+    <button onclick="closeProject()" class="close-btn">✕</button>
+    <div id="project-content" class="w-full max-w-6xl px-6 pt-12 pb-12">
+      <h2 id="project-title"></h2>
+      <div id="project-large-description"></div>
+      <img id="building-image" src="" alt="Main building image" />
+      <div class="toggle-buttons">
+        <button id="before-btn" class="toggle-button active" onclick="showBefore()">Before</button>
+        <button id="after-btn" class="toggle-button" onclick="showAfter()">After</button>
+      </div>
+      <div class="carousel-container">
+        <img id="carousel-image" src="" alt="Project Image" />
+        <button onclick="prevImage()" class="carousel-button left">‹</button>
+        <button onclick="nextImage()" class="carousel-button right">›</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const projects = {
+      project1: {
+        title: "Hotel Grand Renovation",
+        description: "A full interior and exterior repaint of the 5-star Hotel Grand, completed in 2024 with premium weatherproof coatings and vibrant luxury tones.",
+        buildingImage: "https://t4.ftcdn.net/jpg/02/81/89/73/360_F_281897358_3rj9ZBSZHo5s0L1ug7uuIHadSxh9Cc75.jpg",
+        beforeAfter: {
+          before: ["images/before.jpg"],
+          after: ["images/after.jpg"]
+        }
+      },
+      project2: {
+        title: "Riverside Villas",
+        description: "Painted 12 modern villas by the riverside with moisture-resistant exterior finishes and custom interiors, completed over 3 months.",
+        buildingImage: "https://t4.ftcdn.net/jpg/02/81/89/73/360_F_281897358_3rj9ZBSZHo5s0L1ug7uuIHadSxh9Cc75.jpg",
+        beforeAfter: {
+          before: ["img/before.jpg"],
+          after: ["img/after.jpg"]
+        }
+      }
+    };
+
+    let currentProject = null;
+    let currentImageIndex = 0;
+    let beforeAfterState = "before";
+
+    const projectModal = document.getElementById("project-modal");
+    const projectTitle = document.getElementById("project-title");
+    const projectLargeDescription = document.getElementById("project-large-description");
+    const buildingImage = document.getElementById("building-image");
+    const carouselImage = document.getElementById("carousel-image");
+    const beforeBtn = document.getElementById("before-btn");
+    const afterBtn = document.getElementById("after-btn");
+
+    function openProject(id) {
+      currentProject = projects[id];
+      if (!currentProject) return;
+
+      currentImageIndex = 0;
+      beforeAfterState = "before";
+
+      projectTitle.textContent = currentProject.title;
+      projectLargeDescription.textContent = currentProject.description;
+      buildingImage.src = currentProject.buildingImage;
+      buildingImage.alt = currentProject.title + " building";
+
+      beforeBtn.classList.add("active");
+      afterBtn.classList.remove("active");
+
+      setCarouselImages("before");
+      projectModal.classList.add("active");
+    }
+
+    function closeProject() {
+      projectModal.classList.remove("active");
+      currentProject = null;
+      currentImageIndex = 0;
+    }
+
+    function setCarouselImages(state) {
+      const images = currentProject.beforeAfter[state];
+      if (!images || images.length === 0) return;
+      carouselImage.classList.add("fade");
+      setTimeout(() => {
+        carouselImage.src = images[currentImageIndex % images.length];
+        carouselImage.classList.remove("fade");
+      }, 300);
+    }
+
+    function showBefore() {
+      beforeAfterState = "before";
+      currentImageIndex = 0;
+      beforeBtn.classList.add("active");
+      afterBtn.classList.remove("active");
+      setCarouselImages("before");
+    }
+
+    function showAfter() {
+      beforeAfterState = "after";
+      currentImageIndex = 0;
+      afterBtn.classList.add("active");
+      beforeBtn.classList.remove("active");
+      setCarouselImages("after");
+    }
+
+    function nextImage() {
+      const images = currentProject.beforeAfter[beforeAfterState];
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      setCarouselImages(beforeAfterState);
+    }
+
+    function prevImage() {
+      const images = currentProject.beforeAfter[beforeAfterState];
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      setCarouselImages(beforeAfterState);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (!currentProject) return;
+      if (e.key === "ArrowRight") nextImage();
+      else if (e.key === "ArrowLeft") prevImage();
+      else if (e.key === "Escape") closeProject();
+    });
+
+    buildingImage.addEventListener("error", () => {
+      console.error("Building image failed to load:", buildingImage.src);
+    });
+    carouselImage.addEventListener("error", () => {
+      console.error("Carousel image failed to load:", carouselImage.src);
+    });
+  </script>
+  <script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navLinks = document.getElementById('primary-menu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true' || false;
+    hamburgerBtn.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
