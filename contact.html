@@ -3,7 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | Lohani Paints</title>
+  <!-- SEO Meta Tags -->
+  <title>Contact Us | Lohani Paints & Hardware</title>
+  <meta name="description" content="Contact Lohani Paints & Hardware for quality paints, hardware, and expert painting services. Reach us via phone, email, or visit our store in Gaya, Bihar.">
+  <meta name="keywords" content="contact Lohani Paints, painting services, hardware store, Gaya Bihar, paint shop, customer service">
+  <meta name="author" content="Lohani Paints & Hardware">
+  <meta name="robots" content="index, follow">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.lohanipaints.com/contact.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Contact Us | Lohani Paints & Hardware">
+  <meta property="og:description" content="Reach out to Lohani Paints & Hardware for quality paints and expert painting services in Gaya, Bihar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.lohanipaints.com/contact.html">
+  <meta property="og:image" content="https://www.lohanipaints.com/images/og-image.jpg">
+  <meta property="og:site_name" content="Lohani Paints & Hardware">
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | Lohani Paints & Hardware">
+  <meta name="twitter:description" content="Reach out to Lohani Paints & Hardware for quality paints and expert painting services in Gaya, Bihar.">
+  <meta name="twitter:image" content="https://www.lohanipaints.com/images/og-image.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="css/output.css" rel="stylesheet" />
 
@@ -66,8 +87,7 @@
       opacity: 1;
     }
 
-    /* --- ADDED: Hamburger button and mobile nav styles --- */
-    /* Hide hamburger on desktop */
+    /* Hamburger button and mobile nav styles */
     .hamburger {
       display: none;
       cursor: pointer;
@@ -89,10 +109,9 @@
       gap: 2rem;
     }
     @media (max-width: 768px) {
-      /* Hide nav links */
       nav > div.space-x-8 {
         position: fixed;
-        top: 64px; /* below navbar */
+        top: 64px;
         right: 0;
         background: rgba(255 255 255 / 0.95);
         backdrop-filter: saturate(180%) blur(10px);
@@ -107,13 +126,9 @@
         overflow-y: auto;
         z-index: 45;
       }
-
-      /* Show nav links when active */
       nav > div.space-x-8.active {
         transform: translateX(0);
       }
-
-      /* Show hamburger */
       .hamburger {
         display: flex;
       }
@@ -121,7 +136,6 @@
   </style>
 </head>
 <body class="font-sans text-gray-800 bg-soft-gradient">
-
   <!-- Header -->
   <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center sticky top-0 z-30">
     <h1 class="text-2xl font-bold text-blue-700">Lohani Paints</h1>
@@ -131,7 +145,6 @@
       <div>
         <a href="index.html" class="font-bold text-xl">Lohani Paints</a>
       </div>
-
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu" id="hamburger-btn">
         <svg width="24" height="24" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -139,34 +152,33 @@
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-
-<div class="nav-links space-x-8" id="primary-menu">
-    <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Home
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Contact
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Affiliates
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Reviews
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-    <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      About
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
+      <div class="nav-links space-x-8" id="primary-menu">
+        <a href="index.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+          Home
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
+        <a href="contact.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+          Contact
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
+        <a href="affiliates.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+          Affiliates
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
+        <a href="reviews.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+          Reviews
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
+        <a href="about.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
+          About
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
         <a href="ourbiggestprojects.html" class="relative hover:text-blue-600 focus:text-blue-600 transition">
-      Our Biggest Projects
-      <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
-    </a>
-  </div>
-</nav>
+          Our Biggest Projects
+          <span class="absolute bottom-[-6px] left-0 w-0 h-1 bg-blue-500 transition-all duration-300"></span>
+        </a>
+      </div>
+    </nav>
 
     <style>
       nav a {
@@ -179,7 +191,6 @@
         width: 100%;
       }
     </style>
-
   </header>
 
   <!-- Hero Section -->
@@ -190,7 +201,6 @@
 
   <!-- Section Wrapper -->
   <section class="max-w-6xl mx-auto px-6 py-20 space-y-24">
-
     <!-- Contact Details Card -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center fade-in">
       <div class="bg-white rounded-2xl shadow-lg p-10 md:p-14 space-y-4 text-lg">
@@ -204,7 +214,7 @@
         <div class="tooltip">
           <a href="https://wa.me/917277709749" target="_blank"
              class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 mt-6 rounded-lg shadow transition ripple">
-            <img src="img/whatsapp-icon.svg" alt="WhatsApp" class="w-5 h-5"> Chat on WhatsApp
+            <img src="img/whatsapp-icon.svg" alt="WhatsApp Icon" class="w-5 h-5"> Chat on WhatsApp
           </a>
           <span class="tooltiptext">Chat with Chicky Mama – Owner of Lohani Paints</span>
         </div>
@@ -215,7 +225,7 @@
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1810.959644659215!2d85.00587575650175!3d24.798217094469504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32a15e536ed9f%3A0x4802f3d22bc74d61!2sLohani%20paints%20and%20hardware%20store!5e0!3m2!1sen!2sus!4v1752423904763!5m2!1sen!2sus"
           class="w-full h-[500px] md:h-[600px]"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lohani Paints & Hardware Location">
         </iframe>
       </div>
     </div>
@@ -252,8 +262,38 @@
 
   <!-- Footer -->
   <footer class="bg-gray-100 py-6 text-center text-sm text-gray-600">
-    &copy; 2025 Lohani Paints. All rights reserved.
+    © 2025 Lohani Paints. All rights reserved.
   </footer>
+
+  <!-- Structured Data for Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lohani Paints & Hardware",
+      "url": "https://www.lohanipaints.com",
+      "logo": "https://www.lohanipaints.com/images/logo.png",
+      "description": "Lohani Paints & Hardware provides quality paints and end-to-end painting services since 1995 in Gaya, Bihar.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+917277709749",
+        "contactType": "Customer Service",
+        "email": "info@lohanipaints.com",
+        "url": "https://www.lohanipaints.com/contact.html",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dhamitola, Dulhingunj",
+        "addressLocality": "Gaya",
+        "addressRegion": "Bihar",
+        "postalCode": "823001",
+        "addressCountry": "IN"
+      },
+      "openingHours": "Mo-Sa 09:00-18:00"
+    }
+  </script>
 
   <script>
     function showConfirmation(event) {
@@ -287,7 +327,7 @@
       });
     });
 
-    // --- ADDED: Hamburger toggle script ---
+    // Hamburger toggle script
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('primary-menu');
 
@@ -297,6 +337,5 @@
       navLinks.classList.toggle('active');
     });
   </script>
-
 </body>
 </html>
