@@ -40,7 +40,102 @@
       overflow: hidden;
     }
 
-    /* Navbar styles from contact.html */
+    /* Full screen intro doors */
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      display: flex;
+      z-index: 50;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .door {
+      flex: 1;
+      background: linear-gradient(45deg, #FF4E50, #F9D423);
+      position: relative;
+      transform-origin: center;
+      transition: transform 2s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      font-weight: 900;
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      user-select: none;
+      padding: 0 1rem;
+      white-space: nowrap;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    .door.right {
+      background: linear-gradient(45deg, #1FA2FF, #12D8FA, #A6FFCB);
+    }
+    #intro.open .door.left {
+      transform: translateX(-100%);
+    }
+    #intro.open .door.right {
+      transform: translateX(100%);
+    }
+
+    /* Paint burst container */
+    #paint-burst {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 60;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .paint-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: burst 1.5s ease forwards;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+    }
+    @keyframes burst {
+      0% {
+        transform: scale(0.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(5);
+        opacity: 0;
+      }
+    }
+
+    /* Show intro & paint burst only when .show-intro is on body */
+    .show-intro #intro,
+    .show-intro #paint-burst {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Main content hidden initially */
+    main {
+      opacity: 0;
+      transition: opacity 1s ease 0.5s;
+    }
+    main.visible {
+      opacity: 1;
+    }
+
+    /* Navbar styles */
     nav a {
       position: relative;
       padding-bottom: 4px;
@@ -91,6 +186,23 @@
       }
       .hamburger {
         display: flex;
+      }
+    }
+    @media (max-width: 420px) {
+      .door.right {
+        white-space: normal;
+        padding: 0 1rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+      }
+      .door.right::after {
+        content: "\A & HARDWARE";
+        white-space: pre;
+        font-weight: 900;
+      }
+      .door.right span {
+        display: none;
       }
     }
 
@@ -676,7 +788,9 @@
       #articles h2,
       #articleModal header h3,
       #articleModal .modal-content img,
-      #articleModal .modal-content p {
+      #articleModal .modal-content p,
+      #intro,
+      .paint-circle {
         animation: none;
         opacity: 1;
         transform: none;
@@ -685,6 +799,15 @@
   </style>
 </head>
 <body>
+  <!-- Intro Doors -->
+  <div id="intro" aria-hidden="true">
+    <div class="door left">LOHANI</div>
+    <div class="door right">PAINTS<span> & HARDWARE</span></div>
+  </div>
+
+  <!-- Paint Burst Container -->
+  <div id="paint-burst" aria-hidden="true"></div>
+
   <!-- Header -->
   <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-30">
     <!-- Navbar -->
@@ -732,12 +855,12 @@
     </nav>
   </header>
 
-  <!-- Original content from index.html -->
+  <!-- Main content -->
   <main>
     <section id="hero">
       <h1>Transform Your Space with Lohani Paints</h1>
       <p>Trusted since 1995 for beautiful paints and hardware. Experience expert consulting, premium supplies, and trusted painters.</p>
-      <button class="cta-btn">Contact Us</button>
+      <button class="cta-btn">Get Started</button>
       <div class="paint-speckle speckle1"></div>
       <div class="paint-speckle speckle2"></div>
       <div class="paint-speckle speckle3"></div>
@@ -820,7 +943,50 @@
 
   <!-- JavaScript -->
   <script>
-    // Hamburger toggle script from contact.html
+    // Intro animation
+    const intro = document.getElementById('intro');
+    const paintBurstContainer = document.getElementById('paint-burst');
+    const mainContent = document.querySelector('main');
+
+    function createPaintBurst() {
+      for (let i = 0; i < 30; i++) {
+        const circle = document.createElement('div');
+        circle.classList.add('paint-circle');
+        circle.style.width = circle.style.height = `${Math.random() * 100 + 30}px`;
+        circle.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        circle.style.top = `${Math.random() * 100}vh`;
+        circle.style.left = `${Math.random() * 100}vw`;
+        circle.style.animationDelay = `${Math.random() * 0.8}s`;
+        paintBurstContainer.appendChild(circle);
+      }
+    }
+
+    function runIntroAnimation() {
+      if (localStorage.getItem('introPlayed')) {
+        mainContent.classList.add('visible');
+        return;
+      }
+
+      document.body.classList.add('show-intro');
+
+      setTimeout(() => {
+        intro.classList.add('open');
+      }, 1000);
+
+      setTimeout(() => {
+        createPaintBurst();
+      }, 2000);
+
+      setTimeout(() => {
+        document.body.classList.remove('show-intro');
+        mainContent.classList.add('visible');
+        localStorage.setItem('introPlayed', 'true');
+      }, 4500);
+    }
+
+    window.onload = runIntroAnimation;
+
+    // Hamburger toggle script
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('primary-menu');
 
@@ -898,11 +1064,12 @@
         if (e.key === 'ArrowRight' && currentArticleIndex < articles.length - 1) updateModal(currentArticleIndex + 1);
       }
     });
+
     // Get Started button redirect
-const getStartedBtn = document.querySelector('.cta-btn');
-getStartedBtn.addEventListener('click', () => {
-  window.location.href = 'contact.html';
-});
+    const getStartedBtn = document.querySelector('.cta-btn');
+    getStartedBtn.addEventListener('click', () => {
+      window.location.href = 'contact.html';
+    });
   </script>
 </body>
 </html>
